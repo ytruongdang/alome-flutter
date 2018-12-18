@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-
+import './list_message.dart';
+import '../../model/message.dart';
 class AudioLive extends StatelessWidget {
+
+  final Message message;
+
+  AudioLive(this.message);
 
   Widget _viewer({String value}) {
     return new Row(
@@ -46,7 +51,15 @@ class AudioLive extends StatelessWidget {
               new Container(height: 10,),
               _viewer(value: '127 nguoi dang xem'),
             ],
-          ),          
+          ),      
+          new Align(
+            alignment: Alignment.bottomLeft,
+            child: new Container(
+              height: 150.0,
+              child: ListMessage(),
+            )
+          )
+           
         ],
       ),
       height: 250.0,

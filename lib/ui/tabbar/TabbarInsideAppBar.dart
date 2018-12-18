@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../home/home_page.dart';
 import './bubble_tab_indicator.dart';
 import '../homeLive/home_live.dart';
+import '../../model/action_type.dart';
 
 class TabbarInsideAppBar extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _TabbarInsideAppBarState extends State<TabbarInsideAppBar> with SingleTick
 
   Widget getTabBarPages() {
     return TabBarView(controller: tabController, children: <Widget>[
-      new HomeLive(),
+      new HomeLive(ActionType.GetLive),
       Container(color: Colors.red,),
       new HomePage()
     ]);

@@ -1,0 +1,2 @@
+class InitAction {}
+class FetchHomePageAction{}
