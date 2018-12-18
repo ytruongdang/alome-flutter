@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import '../../core/core.dart';
 import '../../model/action_type.dart';
+import '../common/loading_view.dart';
+import '../common/progress_indicator.dart';
 
 class HomeLive extends StatelessWidget {
 
@@ -92,6 +94,12 @@ class HomePageContent extends StatelessWidget {
   HomePageContent(this.viewModel, this.actionType);
   Widget build(BuildContext context) {
     print(viewModel.status);
-    return Container(color: Colors.red,);
+    print(actionType);
+    return LoadingView(
+      status: viewModel.status,
+      loadingContent: LoadingIndicator(),
+      successContent: Container(color: Colors.blueAccent,),
+      errorContent: Container(color: Colors.greenAccent,),
+    );
   }
 }

@@ -28,6 +28,7 @@ class HomePageViewModel {
   bool operator == (Object other) => 
     identical(this, other) ||
     other is HomePageViewModel &&
+    runtimeType == other.runtimeType &&
     status == other.status &&
     live == other.live;
 

@@ -15,4 +15,12 @@ class AppState {
       searchQuery: null
     );
   }
+  bool operator == (Object other) =>
+    identical(this, other) ||
+    other is AppState &&
+      runtimeType == other.runtimeType &&
+      searchQuery == other.searchQuery &&
+      homeLiveState == other.homeLiveState;
+  
+  int get hashCode => searchQuery.hashCode ^ homeLiveState.hashCode;
 }

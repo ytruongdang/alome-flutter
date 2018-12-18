@@ -7,6 +7,17 @@ import './home_live_action.dart';
 HomeLiveState homeReducer(HomeLiveState state, dynamic action) {
   if(action is RequestAction) {
     return _getLiveVideo(state, action.type);
+  }else if(action is ReceivedLiveAction) {
+    print('acion error ${action}');
+    return state.copyWith(
+      loadingStatus: LoadingStatus.success,
+      live: action.live
+    );
+  }else if(action is ErrorLoadingAction) {
+    print('acion error ${action}');
+    return state.copyWith(
+      loadingStatus: LoadingStatus.error,
+    );
   }
   return state;
 }

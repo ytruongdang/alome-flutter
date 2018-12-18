@@ -10,6 +10,14 @@ class Live {
     @required this.views
   });
 
+  fromJson(Map<String, dynamic> json) {
+    return new Live(
+      id: json['id'],
+      title: json['title'],
+      views: json['views']
+    );
+  }
+
   bool operator ==(Object other) => 
     identical(this, other) ||
     other is Live && id == other.id && title == other.title && views == other.views;
