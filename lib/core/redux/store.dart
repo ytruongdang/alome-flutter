@@ -7,7 +7,7 @@ import './app/app_reducer.dart';
 Store<AppState> createStore(Client client, KeyValueStore keystoreValue) {
   return Store(
     appReducer,
-    initialState: AppState(),
+    initialState: AppState.initial(),
     distinct: true
   );
 }
