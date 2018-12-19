@@ -16,12 +16,13 @@ class HomeLiveMiddleware extends MiddlewareClass<AppState> {
     if(action is FetchHomePageAction) {
       print("call Middleware");
       await _fetchLive(live, next);
+    }else if(action is RefreshHomeLiveAction) {
+      await _fetchLive(live, next);
     }
   }
 
   Future<void> _fetchLive(Live live, NextDispatcher next) async {
     if(live == null) {
-      print('the deo nao ${live}');
       next(RequestAction(ActionType.GetLive));
       try {
         final liveRes = await api.getLive(live);

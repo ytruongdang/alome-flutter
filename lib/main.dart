@@ -32,6 +32,10 @@ class _AlomeAppState extends State<AlomeApp> {
       store: widget.store,
       child: MaterialApp(
         title: 'Alome',
+        theme: ThemeData(
+          primaryColor: Colors.blueAccent,
+          scaffoldBackgroundColor: Colors.blueAccent
+        ),
         home: new TabbarInsideAppBar(),
     ),);
   }

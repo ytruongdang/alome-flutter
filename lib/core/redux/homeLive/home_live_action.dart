@@ -11,6 +11,11 @@ class ReceivedLiveAction {
   ReceivedLiveAction(this.live);
 }
 
+class RefreshHomeLiveAction {
+  final ActionType type;
+  RefreshHomeLiveAction(this.type);
+}
+
 class ErrorLoadingAction {
   ErrorLoadingAction(this.type);
   final ActionType type;

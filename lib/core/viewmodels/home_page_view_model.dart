@@ -4,16 +4,18 @@ import '../redux/app/app_state.dart';
 import '../../model/action_type.dart';
 import '../../model/live.dart';
 import 'package:meta/meta.dart';
+import '../redux/homeLive/home_live_action.dart';
 
 class HomePageViewModel {
   HomePageViewModel({
     @required this.status,
     @required this.live,
+    @required this.refreshEvents
   });
 
   final LoadingStatus status;
   final Live live;
-  // final Function refreshEvents;
+  final Function refreshEvents;
 
   static HomePageViewModel fromStore(
     Store<AppState> store,
@@ -21,7 +23,8 @@ class HomePageViewModel {
   ) {
     return HomePageViewModel(
       status: store.state.homeLiveState.loadingStatus,
-      live: store.state.homeLiveState.live
+      live: store.state.homeLiveState.live,
+      refreshEvents: () => store.dispatch(RefreshHomeLiveAction(type))
     );
   }  
 
@@ -30,8 +33,9 @@ class HomePageViewModel {
     other is HomePageViewModel &&
     runtimeType == other.runtimeType &&
     status == other.status &&
+    refreshEvents == other.refreshEvents &&
     live == other.live;
 
-  int get hashCode => status.hashCode ^ live.hashCode;
+  int get hashCode => status.hashCode ^ live.hashCode ^ refreshEvents.hashCode;
 
 }

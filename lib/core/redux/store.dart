@@ -4,7 +4,6 @@ import 'package:key_value_store/key_value_store.dart';
 import './app/app_state.dart';
 import './app/app_reducer.dart';
 import './homeLive/home_live_middleware.dart';
-import 'package:redux_thunk/redux_thunk.dart';
 import '../api/api.dart';
 
 Store<AppState> createStore(Client client, KeyValueStore keystoreValue) {
@@ -13,7 +12,6 @@ Store<AppState> createStore(Client client, KeyValueStore keystoreValue) {
     appReducer,
     initialState: AppState.initial(),
     middleware: [
-      thunkMiddleware,
       HomeLiveMiddleware(api)
     ]
   );

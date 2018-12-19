@@ -6,6 +6,7 @@ import '../../core/core.dart';
 import '../../model/action_type.dart';
 import '../common/loading_view.dart';
 import '../common/progress_indicator.dart';
+import '../common/info_message_view.dart';
 
 class HomeLive extends StatelessWidget {
 
@@ -99,7 +100,11 @@ class HomePageContent extends StatelessWidget {
       status: viewModel.status,
       loadingContent: LoadingIndicator(),
       successContent: Container(color: Colors.blueAccent,),
-      errorContent: Container(color: Colors.greenAccent,),
+      errorContent: ErrorView(
+        title: 'Opps',
+        description: 'can not get content',
+        onRetry: viewModel.refreshEvents,
+      )
     );
   }
 }
